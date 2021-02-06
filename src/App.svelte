@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Title from "./components/Title.svelte";
+  import Title from './components/Title.svelte';
 
-  const num: number = 5;
+  const num = 5;
   num.toString();
 </script>
 

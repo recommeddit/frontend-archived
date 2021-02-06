@@ -1,21 +1,20 @@
 # VS Code configuration
 
-This template comes with a default configuration in `.vscode/settings.json`, so
-you don't need to configure anything. You only need to install the those
-extensions:
+This template comes with a default configuration in `.vscode/settings.json`, so you don't need to
+configure anything. You only need to install the those extensions:
 
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
   to enable syntax highlighting and rich intellisense.
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   to enable linting while you code.
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  to enable formating on save.
+  to enable formatting on save.
 - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-  to enable all users use same editor configuration regarding to charset,
-  indentation style, EOF, etc
+  to enable all users use same editor configuration regarding to charset, indentation style, EOF,
+  etc
 
-Anyways, you can also use this guide to customize or move this configuration to
-your Workspace or User Settings.
+Anyways, you can also use this guide to customize or move this configuration to your Workspace or
+User Settings.
 
 ## Svelte for VS Code
 
@@ -30,8 +29,7 @@ your Workspace or User Settings.
 
 NOTE: Svelte for VS Code uses Prettier with
 [`prettier-plugin-svelte`](https://github.com/sveltejs/prettier-plugin-svelte)
-under the hood, so previous configuration can be replaced by this, if you
-prefer. Read more below:
+under the hood, so previous configuration can be replaced by this, if you prefer. Read more below:
 
 ```jsonc
 {
