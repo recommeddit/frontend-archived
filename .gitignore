@@ -287,5 +287,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,visualstudiocode,node
 
 ### Svelte ###
-/public/build/
+public/build/
 

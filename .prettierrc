@@ -1,15 +1,19 @@
 {
-  "singleQuote": true,
-  "trailingComma": "all",
-  "useTabs": false,
-  "tabWidth": 2,
-  "printWidth": 100,
-  "overrides": [
-    {
-      "files": "*.ts",
-      "options": {
-        "parser": "typescript"
-      }
-    }
-  ]
+	"singleQuote": true,
+	"trailingComma": "all",
+	"useTabs": false,
+	"tabWidth": 2,
+	"printWidth": 100,
+	"overrides": [
+		{
+			"files": "*.ts",
+			"options": {
+				"parser": "typescript"
+			}
+		}
+	],
+	"proseWrap": "always",
+	"endOfLine": "lf",
+	"svelteStrictMode": true,
+	"svelteBracketNewLine": true
 }
