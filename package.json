@@ -1,10 +1,15 @@
 {
-  "name": "svelte-app",
+  "name": "recommeddit-frontend",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+		"format": "prettier --plugin=./node_modules/prettier-plugin-svelte --check .",
+		"format-fix": "prettier --plugin=./node_modules/prettier-plugin-svelte --write .",
+		"postinstall": "patch-package",
+		"lint": "eslint --ext .cjs,.js,.ts,.json,.svelte .",
+		"lint-fix": "eslint --fix --ext .cjs,.js,.ts,.json,.svelte .",
     "start": "sirv public",
     "validate": "svelte-check"
   },

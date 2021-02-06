@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,visualstudiocode,jetbrains,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,visualstudiocode,jetbrains,node
+# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,visualstudiocode,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,jetbrains,visualstudiocode,node
 
 ### JetBrains ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -284,4 +284,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,macos,visualstudiocode,jetbrains,node
+# End of https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,visualstudiocode,node
+
+### Svelte ###
+/public/build/
+
