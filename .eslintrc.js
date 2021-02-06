@@ -11,7 +11,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
     createDefaultProgram: true,
-    ecmaVersion: 2019,
+    ecmaVersion: 2021,
     sourceType: 'module',
   },
   extends: ['eslint:recommended'],
@@ -22,7 +22,7 @@ module.exports = {
       processor: 'svelte3/svelte3',
     },
     {
-      files: ['src/**/*.ts', 'src/**/*.json'],
+      files: ['**/*.ts?(x)'],
       extends: [
         'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
@@ -30,6 +30,18 @@ module.exports = {
         'plugin:promise/recommended',
         'prettier',
         'prettier/@typescript-eslint',
+      ],
+    },
+    {
+      files: ['**/!(*.svelte)/*.ts'],
+      extends: [
+        'airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:eslint-comments/recommended',
+        'plugin:promise/recommended',
+        'prettier',
+        'prettier/@typescript-eslint',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
     },
   ],

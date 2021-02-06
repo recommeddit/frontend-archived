@@ -12,6 +12,7 @@ const mainThread = () => {
     process.env.DEBUG_COLORS = 'true';
   }
 
+  const isRunningWithinCli = !process.argv.includes('--node-ipc');
   const isDoneBuffer = new SharedArrayBuffer(4);
   const isDoneView = new Int32Array(isDoneBuffer);
   const dataBuffer = new SharedArrayBuffer(50 * 1024 * 1024);
@@ -49,10 +50,12 @@ const mainThread = () => {
         debugMain('No result obtained; finished with last result');
         return lastResult;
       } finally {
-        setTimeout(() => {
-          debugMain('Terminating worker');
-          worker.terminate();
-        });
+        if (isRunningWithinCli) {
+          setTimeout(() => {
+            debugMain('Terminating worker');
+            worker.terminate();
+          });
+        }
       }
     };
   };
