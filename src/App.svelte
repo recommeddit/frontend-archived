@@ -1,9 +1,13 @@
 <script lang="ts">
   import Title from './components/Title.svelte';
+  import SearchInput from './components/SearchInput.svelte';
+  import SearchButton from './components/SearchButton.svelte';
 </script>
 
-<main class="bg-white dark:bg-black">
+<main class="dark:bg-black flex flex-col items-center justify-center h-screen">
   <Title />
+  <SearchInput />
+  <SearchButton />
 </main>
 
 <style global lang="postcss">
