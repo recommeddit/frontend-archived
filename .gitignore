@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,visualstudiocode,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,jetbrains,visualstudiocode,node
 
@@ -113,6 +112,7 @@ fabric.properties
 
 # Icon must end with two \r
 Icon
+
 
 # Thumbnails
 ._*
@@ -285,7 +285,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,jetbrains,visualstudiocode,node
-
-### Svelte ###
-public/build/
-

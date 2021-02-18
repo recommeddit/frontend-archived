@@ -1,28 +1,18 @@
-const eslintSveltePreprocess = require('./eslint-svelte-preprocess');
-
 module.exports = {
   root: true,
-  env: {
-    node: true,
-    browser: true,
-  },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
-    createDefaultProgram: true,
-    ecmaVersion: 2021,
-    sourceType: 'module',
-  },
-  extends: ['eslint:recommended'],
-  plugins: ['svelte3', '@typescript-eslint', 'prettier'],
   overrides: [
     {
       files: ['*.svelte'],
       processor: 'svelte3/svelte3',
-    },
-    {
-      files: ['**/*.ts?(x)'],
+      parser: '@typescript-eslint/parser', // add the TypeScript parser
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.json'],
+      },
+      plugins: [
+        'svelte3',
+        '@typescript-eslint', // add the TypeScript plugin
+      ],
       extends: [
         'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
@@ -31,9 +21,28 @@ module.exports = {
         'prettier',
         'prettier/@typescript-eslint',
       ],
+      rules: {
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'import/no-mutable-exports': 0,
+        'no-labels': 0,
+        'no-restricted-syntax': 0,
+      },
+      settings: {
+        'svelte3/typescript': require('typescript'), // pass the TypeScript package to the Svelte plugin
+        // ...
+      },
     },
     {
-      files: ['**/!(*.svelte)/*.ts'],
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser', // add the TypeScript parser
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.json'],
+      },
+      plugins: [
+        'svelte3',
+        '@typescript-eslint', // add the TypeScript plugin
+      ],
       extends: [
         'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
@@ -41,11 +50,17 @@ module.exports = {
         'plugin:promise/recommended',
         'prettier',
         'prettier/@typescript-eslint',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
+      rules: {
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'import/no-mutable-exports': 0,
+        'no-labels': 0,
+        'no-restricted-syntax': 0,
+      },
+    },
+    {
+      files: ['*.json', '*.js'],
+      extends: 'airbnb-base',
     },
   ],
-  settings: {
-    'svelte3/preprocess': eslintSveltePreprocess(),
-  },
 };

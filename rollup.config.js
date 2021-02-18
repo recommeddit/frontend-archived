@@ -3,10 +3,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import sveltePreprocess from 'svelte-preprocess';
+import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
-import typescript from 'rollup-plugin-typescript2';
-
-const svelteConfig = require('./svelte.config');
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -14,16 +13,12 @@ function serve() {
   let server;
 
   function toExit() {
-    if (server) {
-      server.kill(0);
-    }
+    if (server) server.kill(0);
   }
 
   return {
     writeBundle() {
-      if (server) {
-        return;
-      }
+      if (server) return;
       server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
         stdio: ['ignore', 'inherit', 'inherit'],
         shell: true,
@@ -38,7 +33,7 @@ function serve() {
 export default {
   input: 'src/main.ts',
   output: {
-    sourcemap: true,
+    sourcemap: production,
     format: 'iife',
     name: 'app',
     file: 'public/build/bundle.js',
@@ -58,7 +53,7 @@ export default {
         // a separate file - better for performance
         css: false,
       },
-      preprocess: svelteConfig.preprocess,
+      preprocess: sveltePreprocess(),
     }),
 
     // If you have external dependencies installed from
@@ -71,7 +66,10 @@ export default {
       dedupe: ['svelte'],
     }),
     commonjs(),
-    typescript({ sourceMap: !production }),
+    typescript({
+      sourceMap: !production,
+      inlineSources: !production,
+    }),
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated

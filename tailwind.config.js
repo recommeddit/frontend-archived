@@ -3,7 +3,10 @@ const production = !process.env.ROLLUP_WATCH;
 module.exports = {
   purge: {
     enabled: production,
-    content: ['./src/**/*.html', './src/**/*.svelte'],
+    content: [
+      './src/**/*.html',
+      './src/**/*.svelte',
+    ],
     options: {
       safelist: [
         'border-blue-300',
@@ -142,25 +145,6 @@ module.exports = {
         800: '#97266d',
         900: '#702459',
       },
-    },
-    fontFamily: {
-      sans: [
-        'Inter',
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        'Segoe UI',
-        'Roboto',
-        'Helvetica Neue',
-        'Arial',
-        'Noto Sans',
-        'sans-serif',
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Segoe UI Symbol',
-        'Noto Color Emoji',
-      ],
     },
     extend: {},
   },

@@ -11,9 +11,5 @@
         "parser": "typescript"
       }
     }
-  ],
-  "proseWrap": "always",
-  "endOfLine": "lf",
-  "svelteStrictMode": true,
-  "svelteBracketNewLine": true
+  ]
 }

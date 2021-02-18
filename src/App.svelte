@@ -4,7 +4,7 @@
   import SearchButton from './components/SearchButton.svelte';
 </script>
 
-<main class="dark:bg-black flex flex-col items-center justify-center h-screen">
+<main class="flex flex-col items-center justify-center h-screen dark:bg-black">
   <Title />
   <SearchInput />
   <SearchButton />
