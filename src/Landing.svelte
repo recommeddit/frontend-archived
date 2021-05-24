@@ -1,11 +1,12 @@
 <script lang="ts">
+  import {createEventDispatcher} from 'svelte';
+
+  const dispatch = createEventDispatcher();
+
   let query = "";
 
-  const handleSearch = async () => {
-    const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/search?"
-      + new URLSearchParams({query}));
-    const recommendations = await res.json();
-    console.log(recommendations);
+  const handleClick = () => {
+    dispatch('search', query);
   }
 
 </script>
@@ -29,7 +30,6 @@
                         class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
                         type="button">
                   <span class="sr-only">Open main menu</span>
-                  <!-- Heroicon name: outline/menu -->
                   <svg aria-hidden="true" class="h-6 w-6" fill="none"
                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
@@ -65,7 +65,7 @@
                 </p>
                 <div class="mt-10 sm:mt-12">
                   <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0"
-                        on:submit|preventDefault={handleSearch}>
+                        on:submit|preventDefault={handleClick}>
                     <div class="sm:flex">
                       <div class="min-w-0 flex-1">
                         <label class="sr-only" for="search">Search</label>
