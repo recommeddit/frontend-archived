@@ -1,12 +1,25 @@
 <script>
   import { fly } from 'svelte/transition';
 
+  import { RingLoader } from 'svelte-loading-spinners'
+
   export let recommendations;
   export let isLoading;
 
   $: console.log(`recommendations: ${recommendations}`);
   $: console.log(`isLoading: ${isLoading}`);
 </script>
+
+<style>
+  .spinner-item {
+    position: fixed;
+    left: 800px;
+    top: 300px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+</style>
 
 <header class="bg-gray-900 shadow-sm lg:static lg:overflow-y-visible">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,5 +139,10 @@
         </div>
       </div>
     {/each}
+  {:else}
+    <div class="spinner-item">
+      <RingLoader size="80" color="#5CE4E9" unit="px"
+                  duration="1s"/>
+    </div>
   {/if}
 </div>
